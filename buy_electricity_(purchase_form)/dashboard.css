@@ -1,0 +1,99 @@
+:root {
+    --primary-50: #f0fdf4;
+    --primary-100: #dcfce7;
+    --primary-200: #bbf7d0;
+    --primary-300: #86efac;
+    --primary-400: #4ade80;
+    --primary-500: #22c55e;
+    --primary-600: #16a34a;
+    --primary-700: #15803d;
+    --primary-800: #166534;
+    --primary-900: #14532d;
+    --primary-950: #052e16;
+    --accent-1: #06b6d4;
+    --accent-2: #7c3aed;
+  }
+
+  body {
+    font-family: 'Averta', 'Space Grotesk', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* Soft floating for cards */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+  }
+
+  /* Shimmer for primary actions */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* subtle enter animation for main content */
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* check animation */
+  @keyframes draw {
+    0% { stroke-dashoffset: 80; }
+    100% { stroke-dashoffset: 0; }
+  }
+
+  /* tiny pulsing glow for CTA */
+  .cta-glow {
+    box-shadow: 0 6px 18px rgba(34,197,94,0.12);
+  }
+
+  /* apply animations */
+  .animate-float { animation: float 4s ease-in-out infinite; }
+  .animate-shimmer { background-size: 200% 100%; animation: shimmer 2.8s linear infinite; }
+  .animate-entrance { animation: fadeSlide .45s ease both; }
+
+  /* active nav indicator */
+  .nav-active {
+    background: linear-gradient(90deg, rgba(34,197,94,0.06), transparent);
+    border-left: 3px solid rgba(34,197,94,1);
+  }
+
+  /* styled inputs with animated underline */
+  .fancy-input { position: relative; }
+  .fancy-input input {
+    background: transparent;
+    border: 1px solid #e6e6e9;
+    transition: border-color .18s, box-shadow .18s, transform .18s;
+  }
+  .fancy-input input:focus {
+    border-color: var(--primary-500);
+    box-shadow: 0 6px 20px rgba(34,197,94,0.06);
+    transform: translateY(-1px);
+  }
+  .fancy-input .underline {
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary-500), var(--accent-1));
+    transition: width .28s ease;
+    border-radius: 4px;
+  }
+  .fancy-input input:focus + .underline { width: 100%; }
+
+  /* small chip style for balances */
+  .balance-chip {
+    background: linear-gradient(135deg, rgba(124,58,237,0.06), rgba(6,182,212,0.06));
+    border-radius: 12px;
+    padding: 8px 12px;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  /* responsive small helper */
+  @media (max-width: 640px) {
+    aside { width: 56px; }
+    aside nav span { display:none; }
+  }
